@@ -1,0 +1,119 @@
+@charset "UTF-8";
+body{
+    margin: 0;
+    padding: 0;
+}
+.base{
+    width:100% ;
+    height:100% ;
+    /* height: 500px; */
+    background: linear-gradient(to bottom right, blue, pink);
+}
+/* 头部start */
+.header_base{
+    width: 100%;
+    /* padding: 200; */
+    background-color: rgba(255, 255, 255, 0.6);
+    height: 80px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+.header_logo{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.header_logo_img{
+    height: 70px;
+    margin-left: 120px;
+}
+.header_logo_text{
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(255, 29, 142);
+    margin-left: 20px;
+}
+.header_choices{
+    font-size: 20px;
+    margin-left: 60px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.header_choice{
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.header_login{
+    margin-left: 160px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.header_login_img{
+    margin-left: 10px;
+    margin-right: 10px;
+    height:30px ;
+    width:30px ;
+    cursor: pointer;
+    /* fill: black; */
+}
+.header_choice:hover{
+    color: rgb(255, 29, 142);
+    border-bottom: 2px solid rgb(255, 29, 142);
+}
+
+/* 头部end */
+
+/* 主体start */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 700px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.form-group input[type="submit"] {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.form-group input[type="submit"]:hover {
+    background-color: #4cae4c;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.medical-record {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+.medical-record h3 {
+    margin-top: 0;
+}
+
+/* 主体end */
+
