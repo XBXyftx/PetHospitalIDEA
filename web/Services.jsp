@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: ASUS
   Date: 2024/10/30
-  Time: 10:21
+  Time: 10:10
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="base">
-    <!-- 头部start -->
+    <!-- 头部 -->
     <div class="header_base">
         <div class="header_logo">
             <img src="img/logo.svg" alt="logo" class="header_logo_img">
@@ -38,9 +38,8 @@
             <span class="header_choice">注册</span>
         </div>
     </div>
-    <!-- 头部end -->
 
-    <!-- 主体start -->
+    <!-- 主体 -->
     <div class="container">
         <h2>医疗服务记录</h2>
         <div class="form-group">
@@ -55,48 +54,34 @@
             <!-- 就医记录将在这里显示 -->
         </div>
     </div>
-    <!-- 主体end -->
 
 </div>
+
 <script>
-    var Index = document.querySelectorAll(".header_choice")[0];
-    Index.addEventListener("click",()=>{
+    document.querySelectorAll(".header_choice")[0].addEventListener("click", () => {
         window.location.href = "index.jsp";
-    })
+    });
 
+    // 从后端获取就医记录
     function fetchMedicalRecords() {
-        var petName = document.getElementById('petName').value;
-        // 这里需要从服务器获取数据
-        var medicalRecords = [
-            {
-                date: '2024-03-15',
-                stage: '检查',
-                details: '进行了血液检查和X光检查。'
-            },
-            {
-                date: '2024-03-18',
-                stage: '诊断',
-                details: '诊断为轻微关节炎。'
-            },
-            {
-                date: '2024-03-20',
-                stage: '取药',
-                details: '开具了抗炎药物。'
-            }
-        ];
-
-        var recordsHtml = '<h3>' + petName + "的就医记录</h3>";
-        recordsHtml += '<div class="medical-record">';
-        for (var i = 0; i < medicalRecords.length; i++) {
-            var record = medicalRecords[i];
-            recordsHtml += '<h4>' + record.date + ' - ' + record.stage + '</h4>';
-            recordsHtml += '<p>' + record.details + '</p>';
-        }
-        recordsHtml += '</div>';
-
-        document.getElementById('medicalRecords').innerHTML = recordsHtml;
+        document.getElementById('medicalRecords').innerHTML = '<h1>1</h1>';
+        const petName = document.getElementById('petName').value;
+        fetch('/AnimalServlet?name=' + encodeURIComponent(petName))  // 传递宠物名称
+            .then(response => response.json())
+            .then(data => {
+                let recordsHtml = `<h3>${petName} 的就医记录</h3>`;
+                data.forEach(record => {
+                    recordsHtml += `
+                        <div class="medical-record">
+                            <h4>${record.date} - ${record.stage}</h4>
+                            <p>${record.details}</p>
+                        </div>`;
+                });
+                document.getElementById('medicalRecords').innerHTML = recordsHtml;
+            })
+            .catch(error => console.error('Error:', error));
     }
-
 </script>
+
 </body>
 </html>
