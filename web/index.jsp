@@ -68,12 +68,12 @@
     var medicalServiceTitle = document.querySelector(".main_medicalService_title");
 
     checkInTitle.addEventListener("click", ()=>{
-        window.location.href = 'CheckIn.html';
+        window.location.href = 'CheckIn.jsp';
         console.log("click");
     });
 
     medicalServiceTitle.addEventListener("click", ()=>{
-        window.location.href = 'Services.html';
+        window.location.href = 'Services.jsp';
         console.log("click");
     });
 </script>

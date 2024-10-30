@@ -84,7 +84,7 @@
 <script>
     var Index = document.querySelectorAll(".header_choice")[0];
     Index.addEventListener("click",()=>{
-        window.location.href = "Index.html";
+        window.location.href = "index.jsp";
     })
 
 </script>
