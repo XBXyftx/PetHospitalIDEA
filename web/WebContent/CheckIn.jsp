@@ -11,14 +11,14 @@
 <head>
     <meta charset="UTF-8">
     <title>宠物登记界面</title>
-    <link rel="stylesheet" href="css/CheckIn.css">
+    <link rel="stylesheet" href="../css/CheckIn.css">
 </head>
 <body>
 <div class="base">
     <!-- 头部start -->
     <div class="header_base">
         <div class="header_logo">
-            <img src="img/logo.svg" alt="logo" class="header_logo_img">
+            <img src="../img/logo.svg" alt="logo" class="header_logo_img">
             <span class="header_logo_text">爱宠一方</span>
         </div>
         <div class="header_choices">
@@ -29,9 +29,9 @@
             <span class="header_choice">宠物商城</span>
         </div>
         <div class="header_login">
-            <img src="img/call.svg" alt="电话" class="header_login_img">
+            <img src="../img/call.svg" alt="电话" class="header_login_img">
             <span class="header_choice">|</span>
-            <img src="img/wechat.svg" alt="微信" class="header_login_img">
+            <img src="../img/wechat.svg" alt="微信" class="header_login_img">
             <span class="header_choice">|</span>
             <span class="header_choice">登录</span>
             <span class="header_choice">|</span>

@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ASUS
-  Date: 2024/10/30
-  Time: 10:10
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -22,7 +15,7 @@
             <span class="header_logo_text">爱宠一方</span>
         </div>
         <div class="header_choices">
-            <span class="header_choice">首页</span>
+            <span class="header_choice" onclick="window.location.href='index.jsp'">首页</span>
             <span class="header_choice">医疗团队</span>
             <span class="header_choice">诊疗服务</span>
             <span class="header_choice">康复故事</span>
@@ -54,17 +47,10 @@
             <!-- 就医记录将在这里显示 -->
         </div>
     </div>
-
 </div>
 
 <script>
-    document.querySelectorAll(".header_choice")[0].addEventListener("click", () => {
-        window.location.href = "index.jsp";
-    });
-
-    // 从后端获取就医记录
     function fetchMedicalRecords() {
-        document.getElementById('medicalRecords').innerHTML = '<h1>1</h1>';
         const petName = document.getElementById('petName').value;
         fetch('/AnimalServlet?name=' + encodeURIComponent(petName))  // 传递宠物名称
             .then(response => response.json())
@@ -79,7 +65,10 @@
                 });
                 document.getElementById('medicalRecords').innerHTML = recordsHtml;
             })
-            .catch(error => console.error('Error:', error));
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('medicalRecords').innerHTML = `<p>查询失败，请重试。</p>`;
+            });
     }
 </script>
 
