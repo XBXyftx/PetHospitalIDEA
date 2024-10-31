@@ -52,7 +52,8 @@
 <script>
     function fetchMedicalRecords() {
         const petName = document.getElementById('petName').value;
-        fetch('/AnimalServlet?name=' + encodeURIComponent(petName))  // 传递宠物名称
+        fetch('/PetHS/AnimalServlet?name=' + encodeURIComponent(petName))
+            // 传递宠物名称
             .then(response => response.json())
             .then(data => {
                 let recordsHtml = `<h3>${petName} 的就医记录</h3>`;

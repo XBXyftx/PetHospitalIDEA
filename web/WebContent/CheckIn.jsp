@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <title>宠物登记界面</title>
-    <link rel="stylesheet" href="../css/CheckIn.css">
+    <link rel="stylesheet" href="css/CheckIn.css">
 </head>
 <body>
 <div class="base">

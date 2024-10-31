@@ -116,13 +116,13 @@ body{
     border-radius: 4px;
 }
 .form-group input[type="submit"] {
-    background-color: #5cb85c;
+    background: linear-gradient(to bottom right, blue, pink);
     color: white;
     border: none;
     cursor: pointer;
 }
 .form-group input[type="submit"]:hover {
-    background-color: #4cae4c;
+    background: linear-gradient(to bottom right, #7171fc, #fae2e6);
 }
 h2 {
     text-align: center;
