@@ -76,7 +76,7 @@
                             out.println("<h3>" + petName + " 的就医记录</h3>");
                             while (resultSet.next()) {
                                 out.println("<div class=\"medical-record\">");
-                                out.println("<h4>" + resultSet.getString("data") + " - " + resultSet.getString("stage") + "</h4>");
+                                out.println("<h4>" + resultSet.getString("date") + " - " + resultSet.getString("stage") + "</h4>");
                                 out.println("<p>" + resultSet.getString("details") + "</p>");
                                 out.println("</div>");
                             }
