@@ -8,6 +8,14 @@
     <meta charset="UTF-8">
     <title>医疗服务</title>
     <link rel="stylesheet" href="css/Services.css">
+    <style>
+        .base{
+            width:100% ;
+            /*height:100% ;*/
+            height: 1000px;
+            background: linear-gradient(to bottom right, blue, pink);
+        }
+    </style>
 </head>
 <body>
 <div class="base">

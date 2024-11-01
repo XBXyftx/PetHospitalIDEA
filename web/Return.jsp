@@ -12,6 +12,14 @@
 <html>
 <head>
     <title>Title</title>
+<%--    <style>--%>
+<%--        .white {--%>
+<%--            width: 100%;--%>
+<%--            height: 100px;--%>
+<%--            /*background-color: white;*/--%>
+<%--            background-color: rgba(255, 255, 255, 0.56);--%>
+<%--        }--%>
+<%--    </style>--%>
 </head>
 <body>
     <div class="white">
