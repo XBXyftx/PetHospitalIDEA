@@ -78,22 +78,24 @@
     Index.addEventListener("click",()=>{
         window.location.href = "index.html";
     })
-    document.getElementById("checkInForm").addEventListener("submit", function(event) {
+    document.getElementById("checkInForm").addEventListener("submit", function(event) {//表单提交事件
         event.preventDefault();
 
-        const petName = document.getElementById("petName").value;
+        const petName = document.getElementById("petName").value;//获取宠物名称
+        console.log(petName)
         const petType = document.getElementById("petType").value;
         const ownerName = document.getElementById("ownerName").value;
         const ownerContact = document.getElementById("ownerContact").value;
         const petHealth = document.getElementById("petHealth").value;
-
+        alert(petName)
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "InsertPet.jsp", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.open("POST", "InsertPet.jsp", false);//false表示同步请求，true表示异步请求，post代表提交
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8"); // 设置编码格式为UTF-8，设置请求头部
+        //application/x-www-form-urlencoded：这指定了发送的数据格式。application/x-www-form-urlencoded是一种编码机制，通常用于表单数据，其中数据被编码为键值对，类似于URL查询字符串。
 
         xhr.onload = function() {
             if (xhr.status === 200) {
-                alert("登记成功");
+                alert("登记成功"+petName);
                 // Optionally redirect to Services.html or refresh CheckIn.html
                 // window.location.href = "Services.html";
             } else {
@@ -102,7 +104,7 @@
         };
 
         xhr.send(
-            `petName=${encodeURIComponent(petName)}`
+            `petName=${encodeURIComponent(petName)}`//将数据编码为URL查询字符串格式
         );
     });
 

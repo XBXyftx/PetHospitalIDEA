@@ -57,7 +57,6 @@
         String petName = request.getParameter("name");
         if (petName != null) {
             response.setContentType("text/html;charset=UTF-8"); // 确保在输出HTML之前设置内容类型
-            List<PetRecord> records = new ArrayList<>();
             try {
                 // 加载数据库驱动
                 Class.forName("com.mysql.cj.jdbc.Driver");
@@ -65,17 +64,19 @@
                 // 建立数据库连接
                 try (Connection connection = DriverManager.getConnection(url, user, password)) {
                     String sql = "SELECT * FROM pets WHERE name = ?";
-                    try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                    try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {// 使用 try-with-resources 确保资源被正确关闭
+                        //prepareStatement(sql)：这是 Connection 接口的一个方法，用于创建一个 PreparedStatement 对象。你需要传递一个 SQL 语句作为参数给这个方法。
+                       // sql是一个字符串变量，包含了要执行的 SQL 语句。当使用 PreparedStatement 时，SQL 语句中的参数需要用 ? 占位符来表示。
                         preparedStatement.setString(1, petName); // 使用 PreparedStatement 防止 SQL 注入
-                        ResultSet resultSet = preparedStatement.executeQuery();
+                        ResultSet resultSet = preparedStatement.executeQuery();// 执行查询
 
                         // 遍历结果集并生成 HTML
-                        if (!resultSet.isBeforeFirst()) {
+                        if (!resultSet.isBeforeFirst()) {// 检查是否有结果resultSet.isBeforeFirst()有结果为真，此处加了!代表没结果进入
                             out.println("<p>未找到该宠物的就医记录。</p>");
                         } else {
                             out.println("<h3>" + petName + " 的就医记录</h3>");
                             while (resultSet.next()) {
-                                out.println("<div class=\"medical-record\">");
+                                out.println("<div class=\"medical-record\">");// 每条记录用一个 div 包裹
                                 out.println("<h4>" + resultSet.getString("date") + " - " + resultSet.getString("stage") + "</h4>");
                                 out.println("<p>" + resultSet.getString("details") + "</p>");
                                 out.println("</div>");

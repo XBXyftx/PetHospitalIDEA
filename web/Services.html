@@ -22,7 +22,7 @@
             <span class="header_logo_text">爱宠一方</span>
         </div>
         <div class="header_choices">
-            <span class="header_choice" onclick="window.location.href='index.html'">首页</span>
+            <span class="header_choice">首页</span>
             <span class="header_choice">医疗团队</span>
             <span class="header_choice">诊疗服务</span>
             <span class="header_choice">康复故事</span>
@@ -62,28 +62,27 @@
         window.location.href = "index.html";
     })
     function fetchMedicalRecords() {
-        const petName = document.getElementById('petName').value;
+        const petName = document.getElementById('petName').value;//获取宠物名称
 
         // AJAX请求
-        const xhr = new XMLHttpRequest();
-        xhr.open("GET", "Return.jsp?name=" + encodeURIComponent(petName), true);
+        const xhr = new XMLHttpRequest();//创建XMLHttpRequest对象
+        xhr.open("GET", "Return.jsp?name=" + encodeURIComponent(petName), true);//发送GET请求
 
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                // 直接覆盖整个页面内容
-                document.getElementById("medicalRecords").innerHTML = xhr.responseText;
-            } else {
+        xhr.onload = function() {//只要 HTTP 请求的响应被完全接收，onload 事件就会被触发。
+            if (xhr.status === 200) {//请求成功时的回调函数
+                document.getElementById("medicalRecords").innerHTML = xhr.responseText;//将返回的HTML内容插入到medicalRecords元素中
+            } else {//请求失败时的回调函数
                 console.error('Error: ' + xhr.statusText);
                 document.getElementById('medicalRecords').innerHTML = `<p>查询失败，请重试。</p>`;
             }
         };
 
-        xhr.onerror = function() {
+        xhr.onerror = function() {//请求发生错误时的回调函数
             console.error('Request failed');
             document.getElementById('medicalRecords').innerHTML = `<p>查询失败，请重试。</p>`;
         };
 
-        xhr.send();
+        xhr.send();//发送请求
     }
 </script>
 
