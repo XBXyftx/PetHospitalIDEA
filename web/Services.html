@@ -78,7 +78,7 @@
             }
         };
 
-        xhr.onerror = function () {//请求发生错误时的回调函数
+        xhr.onerror = () => {//请求发生错误时的回调函数
             console.error('Request failed');
             document.getElementById('medicalRecords').innerHTML = `<p>查询失败，请重试。</p>`;
         };
